@@ -1,0 +1,134 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
+}
+
+nav {
+    display: flex;
+    background-color: rgb(150, 65, 230);
+    justify-content: space-around;
+    align-items: center;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50px;
+    color: rgb(224, 190, 255);
+}
+
+nav .logo {
+    font-family: 'Pacifico', cursive;
+    letter-spacing: 3px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    width: 40%;
+    justify-content: space-between;
+}
+
+nav ul li a {
+    color: rgb(224, 190, 255);
+    text-decoration: none;
+    font-size: 0.8em;
+}
+
+nav ul li a:hover {
+    color: rgb(237, 223, 250);
+    text-decoration: none;
+    font-size: 0.8em;
+}
+
+nav .menu-toggle {
+    display: none;
+    flex-direction: column;
+    height: 20px;
+    justify-content: space-between;
+    position: relative;
+}
+
+nav .menu-toggle input[type="checkbox"] {
+    position: absolute;
+    width: 40px;
+    height: 28px;
+    top: -3px;
+    left: -6px;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 2;
+}
+
+nav .menu-toggle span {
+    display: block;
+    width: 28px;
+    height: 3px;
+    background-color: rgb(224, 190, 255);
+    border-radius: 3px;
+    transition: 0.5s;
+}
+
+/* HAMBURGER MENU */
+nav .menu-toggle span:nth-child(3) {}
+
+nav .menu-toggle input[type="checkbox"]:checked~span:nth-child(2) {
+    /* Cari sibling(~) span child ke () jika input type data checkbox di click */
+    transform: rotate(45deg) translate(0, -1px);
+    transform-origin: 0 0;
+    /* Transform origin untuk mengatur titik sumbu */
+    /* Value transform-origin = 0 0 (sumbu x - sumbu y) */
+}
+
+nav .menu-toggle input[type="checkbox"]:checked~span:nth-child(4) {
+    /* Cari sibling(~) span child ke () jika input type data checkbox di click */
+    transform: rotate(-45deg) translate(0, 1px);
+    transform-origin: 0 100%;
+    /* Transform origin untuk mengatur titik sumbu */
+    /* Value transform-origin = 0 0 (sumbu x - sumbu y) */
+}
+
+nav .menu-toggle input[type="checkbox"]:checked~span:nth-child(3) {
+    transform: scale(0);
+    opacity: 0;
+}
+
+@media screen and (max-width:768px) {
+    nav ul {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width:576px) {
+    nav ul {
+        position: absolute;
+        right: 0;
+        top: 50px;
+        width: 40%;
+        flex-direction: column;
+        background-color: black;
+        height: calc(100vh - 50px);
+        align-items: center;
+        justify-content: space-around;
+        z-index: -1;
+        background-color: rgb(150, 65, 230);
+        
+        transition: 1s;
+    }
+
+    nav ul.show {
+        transform: translateX(0);
+    }
+
+    nav .menu-toggle {
+        display: flex;
+    }
+
+    nav ul.slide {
+        transform: translateX(0);
+    }
+
+}
