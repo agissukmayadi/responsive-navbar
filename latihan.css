@@ -55,6 +55,7 @@ nav .menu-toggle {
 @media screen and (max-width:576px) {
     nav ul {
         width: 40%;
+        /* UNGU */
         background-color: rgb(150, 65, 230);
         position: absolute;
         top: 50px;
